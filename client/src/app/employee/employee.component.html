@@ -1,0 +1,15 @@
+<!-- First Name : <input [(ngModel)]="newEmployee.firstName" type="text" /><br />
+Last Name : <input [(ngModel)]="newEmployee.lastName" type="text" /><br />
+<button (click)="createEmployee()">Submit</button><br /> -->
+
+<button (click)="getEmployee()">Get employees</button>
+<button (click)="goToAddEmployee()">Go to Add employee</button>
+<ul>
+@for (Employee of employees; track employees._id) {
+<li>
+    {{ Employee.firstName }}
+    {{ Employee.lastName }}
+    <button (click)="findByIdAndDelete(Employee._id)">delete</button>
+</li>
+}
+</ul>
