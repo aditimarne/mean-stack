@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 
 
   // constructor(private http: HttpClient) {
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
     templateUrl: './employee.component.html',
     styleUrl: './employee.component.scss'
   })
-  export class EmployeesComponent {
+  export class EmployeesComponent implements OnInit{
   
     employees: any = [];
   
@@ -20,6 +19,9 @@ import { Router } from '@angular/router';
       private http: HttpClient,
       private router: Router
     ) {
+    }
+    ngOnInit(): void {
+        this.getEmployee();
     }
   
     getEmployee() {
