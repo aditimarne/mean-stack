@@ -4,7 +4,7 @@ Last Name : <input [(ngModel)]="newEmployee.lastName" type="text" /><br />
 
 <!-- <button (click)="getEmployee()">Get employees</button> -->
 <div class="m-4">
-  <button class="float-end btn btn-primary" (click)="goToAddEmployee()">
+  <button class="d-flex flex-row-reverse bd-highlight btn btn-primary" (click)="goToAddEmployee()">
     Go to Add employee
   </button>
   <!-- <ul> -->
@@ -16,12 +16,14 @@ Last Name : <input [(ngModel)]="newEmployee.lastName" type="text" /><br />
 </li>
 }
 </ul> -->
+@if (isloading==false) {
   <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
+        <th scope="col"></th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -39,8 +41,19 @@ Last Name : <input [(ngModel)]="newEmployee.lastName" type="text" /><br />
             DEL
           </button>
         </td>
+        <td>
+            <button
+            [routerLink]="'/edit-employee/' + employee._id"
+            class="btn btn-warning"
+          >
+            Edit
+          </button>
+        </td>
       </tr>
       }
     </tbody>
-  </table>
+  </table>}
+  @else {
+    <h1>...Loading</h1>
+  }
 </div>

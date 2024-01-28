@@ -53,3 +53,13 @@ exports.findByIdAndDelete = (req, res, next) => {
         });
     });
 };
+
+exports.updateEmployee =(req,res,next) =>{
+    EmployeeModel.findByIdAndUpdate(req.params.id,req.body)
+       .then((result) =>{
+        res.status(202).json({msg:"Employee updated",data:result});
+    }).catch(err => {
+        res.status(404).json({msg:"Employee not found"
+        });
+    });
+};

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
+
   // constructor(private http: HttpClient) {
   // }
   
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
   export class EmployeesComponent implements OnInit{
   
     employees: any = [];
+    isloading =false;
   
     constructor(
       private http: HttpClient,
@@ -25,13 +27,17 @@ import { Router } from '@angular/router';
     }
   
     getEmployee() {
+      this.isloading=true;
       this.http.get('http://localhost:3000/employees').subscribe({
         next: (res: any) => {
-          console.log(res);
+            console.log(res);
+          this.isloading=false;
           this.employees = res.employees;
+        
         },
         error: (err) => {
-          console.log(err);
+          this.isloading=false;
+          // console.log(err);
         }
       })
     }

@@ -6,6 +6,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AddEmployeeComponent } from "./add-employee/add-employee.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { EmployeesComponent } from "./employee/employee.component";
 import { LoginComponent } from "./login/login.component";
 import { ResgisterComponent } from "./resgister/resgister.component";
@@ -16,6 +17,7 @@ import { ResgisterComponent } from "./resgister/resgister.component";
         AddEmployeeComponent,
         LoginComponent,
         ResgisterComponent,
+        EditEmployeeComponent,
     ],
     imports: [
         CommonModule,
